@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <header>
+        <div class="promo-banner"> </div>
+        <nav class="navbar">
+            <div class="logo">Whitelight Enterprises</div>
+            <ul class="nav-links">
+                <li onclick="showDialog('Home Decor Lights')">Home Decor Lights</li>
+                <li onclick="showDialog('Outdoor')">Outdoor</li>
+                <li onclick="showDialog('Chandeliers')">Chandeliers</li>
+                <li onclick="showDialog('Ceiling Fans')">Ceiling Fans</li>
+                <li onclick="showDialog('LED Spotlights')">LED Spotlights</li>
+                <li onclick="showDialog('Contact')">Contact</li>
+            </ul>
+        </nav>
+        <script> 
+function showDialog(content) {
+    document.getElementById('dialogText').textContent = content;
+    document.getElementById('dialogBox').style.display = 'block';
+}
+ 
+function closeDialog() {
+    document.getElementById('dialogBox').style.display = 'none';
+}
+
+        </script>
+        
+        
+        <div id="dialogBox" class="dialog">
+            <div class="dialog-content">
+                <span class="close" onclick="closeDialog()">&times;</span>
+                <p id="dialogText"></p>
+            </div>
+        </div>
+        
+    </header>
+  
+   
+
+        <div class="main-banner-carousel">
+            <div class="main-banner-card active">
+              <img src="main/Glanza Special Filters-images-0.jpg" alt="Chamonix - France">
+              <div class="info">
+                <h2>p1</h2>
+                <p>France</p>
+                <span>Let your dreams come true</span>
+              </div>
+            </div>
+            <div class="main-banner-card">
+              <img src="main\slider-banner\banner (1).jpg" alt="Mountain">
+              <div class="info">
+                <h2>p2</h2>
+                <p>Alps</p>
+                <span>Explore the serenity</span>
+              </div>
+            </div>
+            <div class="main-banner-card">
+                <img src="main\slider-banner\banner (2).jpg" alt="Mountain">
+                <div class="info">
+                  <h2>p3</h2>
+                  <p>Alps</p>
+                  <span>Explore the serenity</span>
+                </div>
+              </div>
+            <div class="main-banner-card">
+              <img src="main\slider-banner\banner (3).jpg" alt="Himalayas">
+              <div class="info">
+                <h2>p4</h2>
+                <p></p>
+                <span>Adventure awaits</span>
+              </div>
+            </div>
+          </div> 
+
+<script>
+
+const cards = document.querySelectorAll('.main-banner-card');
+let currentIndex = 0;
+
+function updateCarousel() {
+  cards.forEach((card, index) => {
+    card.classList.remove('active');
+
+    if (index === currentIndex) {
+      card.style.transform = 'scale(1) translateX(0) rotateY(0deg)';
+      card.style.opacity = '1';
+      card.classList.add('active');
+    } else if (index === (currentIndex + 1) % cards.length) {
+      card.style.transform = 'scale(0.9) translateX(400px) rotateY(-30deg)';
+      card.style.opacity = '0.5';
+    } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+      card.style.transform = 'scale(0.9) translateX(-400px) rotateY(30deg)';
+      card.style.opacity = '0.5';
+    }
+  });
+}
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % cards.length;
+  updateCarousel();
+}, 3000);
+
+updateCarousel();
+
+</script>
+
+
+
+
+          
+        <script>
+            
+function updateSlide() {
+    items.style.transform = `translateX(-${index * 600}px)`; // Adjust for image width
+}
+
+// Slide to the next image
+function slideRight() {
+    index = (index + 1) % totalSlides; // Loop back to the start
+    updateSlide();
+}
+
+// Slide to the previous image
+function slideLeft() {
+    index = (index - 1 + totalSlides) % totalSlides; // Loop to the end if necessary
+    updateSlide();
+}
+
+// Auto-slide every 3 seconds
+setInterval(slideRight, 3000);
+        </script>
+    </div>
+    <button class="prev" onclick="slideLeft()">&#10094;</button>
+    <button class="next" onclick="slideRight()">&#10095;</button>
+
+    <br><br>
+        <section class="icon-grid">
+
+            <!-- <div class="round-slider-container">
+                <div class="round-slider">
+                  <div class="round-slide"><img src="image1.jpg" alt="Image 1"></div>
+                  <div class="round-slide"><img src="image2.jpg" alt="Image 2"></div>
+                  <div class="round-slide"><img src="image3.jpg" alt="Image 3"></div>
+                </div>
+              </div> -->
+              <div class="icon-grid">
+                <div class="icon-slider">
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main\slider-banner\banner (1).jpg" alt="Chandeliers">
+                    </div>
+                    <p>Chandeliers</p>
+                  </div>
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main\slider-banner\banner (2).jpg" alt="Duplex">
+                    </div>
+                    <p>Duplex</p>
+                  </div>
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main\slider-banner\banner (3).jpg" alt="Pendants">
+                    </div>
+                    <p>Pendants</p>
+                  </div>
+                  <!-- Repeat icons for infinite scrolling -->
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main\slider-banner\banner (4).jpg" alt="Chandeliers">
+                    </div>
+                    <p>Chandeliers</p>
+                  </div>
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main\slider-banner\banner (5).jpg" alt="Duplex">
+                    </div>
+                    <p>Duplex</p>
+                  </div>
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main\slider-banner\banner (6).jpg" alt="Pendants">
+                    </div>
+                    <p>Pendants</p>
+                  </div>
+                  <div class="icon-item">
+                    <div class="icon-circle">
+                      <img src="main/slider-banner/banner(7).jpg" alt="Additional Banner">
+                    </div>
+                    <p>Additional Banner</p>
+                  </div>
+                </div>
+              </div>
+              
+              
+        </section> 
+        <br><br>
+         <section class="video-section">
+            <video autoplay muted loop class="background-video">
+                <source src=" main\MINI SPOTLIGHT VIDEO.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay-content">
+                <h1>Discover Unmatched Brilliance</h1>
+                <p>At Your Nearest <span class="highlight">Harold Store</span></p>
+                <button class="locate-btn">LOCATE US</button>
+            </div>
+        </section>
+        <section class="discover-new">
+            <div class="section-header">
+                <h2>Discover The New</h2>
+                <a href="#" class="view-all">View all</a>
+            </div>
+            <div class="products"> 
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Circulus de Cristallo Wall Light">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo Wall Light</h3>
+                    <p class="price">
+                        ₹9,999.00 <span class="original-price">₹14,999.00</span>
+                    </p>
+                    <p class="save">Save ₹5,000.00</p>
+                    <p class="emi">or ₹876/Month <a href="#">Buy on EMI</a></p>
+                </div> 
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product2.jpg" alt="Circulus de Cristallo">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo</h3>
+                    <p class="price">
+                        from ₹34,999.00 <span class="original-price">₹49,999.00</span>
+                    </p>
+                    <p class="save">Save ₹15,000.00</p>
+                    <p class="emi">or ₹3,066/Month <a href="#">Buy on EMI</a></p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Circulus de Cristallo Wall Light">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo Wall Light</h3>
+                    <p class="price">
+                        ₹9,999.00 <span class="original-price">₹14,999.00</span>
+                    </p>
+                    <p class="save">Save ₹5,000.00</p>
+                    <p class="emi">or ₹876/Month <a href="#">Buy on EMI</a></p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Circulus de Cristallo Wall Light">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo Wall Light</h3>
+                    <p class="price">
+                        ₹9,999.00 <span class="original-price">₹14,999.00</span>
+                    </p>
+                    <p class="save">Save ₹5,000.00</p>
+                    <p class="emi">or ₹876/Month <a href="#">Buy on EMI</a></p>
+                </div> 
+            </div>
+        </section>
+        <section class="discover-new">
+            <div class="section-header">
+                <h2>Discover The New</h2>
+                <a href="#" class="view-all">View all</a>
+            </div>
+            <div class="products">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Circulus de Cristallo Wall Light">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo Wall Light</h3>
+                    <p class="price">
+                        ₹9,999.00 <span class="original-price">₹14,999.00</span>
+                    </p>
+                    <p class="save">Save ₹5,000.00</p>
+                    <p class="emi">or ₹876/Month <a href="#">Buy on EMI</a></p>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product2.jpg" alt="Circulus de Cristallo">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo</h3>
+                    <p class="price">
+                        from ₹34,999.00 <span class="original-price">₹49,999.00</span>
+                    </p>
+                    <p class="save">Save ₹15,000.00</p>
+                    <p class="emi">or ₹3,066/Month <a href="#">Buy on EMI</a></p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Circulus de Cristallo Wall Light">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo Wall Light</h3>
+                    <p class="price">
+                        ₹9,999.00 <span class="original-price">₹14,999.00</span>
+                    </p>
+                    <p class="save">Save ₹5,000.00</p>
+                    <p class="emi">or ₹876/Month <a href="#">Buy on EMI</a></p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Circulus de Cristallo Wall Light">
+                        <span class="sale-tag">SALE</span>
+                    </div>
+                    <h3>Circulus de Cristallo Wall Light</h3>
+                    <p class="price">
+                        ₹9,999.00 <span class="original-price">₹14,999.00</span>
+                    </p>
+                    <p class="save">Save ₹5,000.00</p>
+                    <p class="emi">or ₹876/Month <a href="#">Buy on EMI</a></p>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </section> 
+        <div class="chandelier-slider">
+            <div class="slider-wrapper">
+                <div class="slide">
+                    <img src="main\modern-decorative-lamps.jpg" alt="Chandelier 1">
+                </div>
+                <div class="slide">
+                    <img src="main\Glanza Special Filters-images-0.jpg" alt="Chandelier 2">
+                </div>
+                <div class="slide">
+                    <img src="image3.jpg" alt="Chandelier 3">
+                </div>
+            </div>
+        </div>
+        <script>
+            const sliderWrapper = document.querySelector('.chandelier-slider .slider-wrapper');
+const slides = document.querySelectorAll('.chandelier-slider .slide');
+let currentIndex = 0;
+
+function slideToNext() {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+        currentIndex = 0; // Loop back to the first slide
+    }
+    updateSlider();
+}
+
+function updateSlider() {
+    sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Automatically slide every 3 seconds
+setInterval(slideToNext, 3000);
+
+        </script>
+
+
+
+
+        <section class="review-slider">
+            <div class="slider-track">
+                <div class="review-card">
+                    <p class="review-text">We got assistance via call from technician Bheem and guided about the options in remote. Fan blades are working better than before now by using R option. Thank you</p>
+                    <a href="#" class="review-link">Google Review Link</a>
+                    <div class="reviewer">
+                        <img src="thrigun.jpg" alt="Thrigun" class="reviewer-img">
+                        <p class="reviewer-name">Thrigun</p>
+                        <p class="reviewer-location">India</p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">I am Isaac Eapen who is a satisfied customer of M/S Harold who ordered a Maharaja Chandelier which I got before time in good condition.</p>
+                    <a href="#" class="review-link">Read complete review</a>
+                    <div class="reviewer">
+                        <img src="isaac.jpg" alt="Isaac" class="reviewer-img">
+                        <p class="reviewer-name">Isaac</p>
+                        <p class="reviewer-location">India</p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">Quality and value for money products. Bought a few products and will buy more. Very much happy and satisfied with the product.</p>
+                    <a href="#" class="review-link">Read Google Review</a>
+                    <div class="reviewer">
+                        <img src="chandra.jpg" alt="Chandra" class="reviewer-img">
+                        <p class="reviewer-name">Chandra</p>
+                        <p class="reviewer-location">India</p>
+                    </div>
+                </div>
+                <!-- Repeat for infinite sliding -->
+                <div class="review-card">
+                    <p class="review-text">We got assistance via call from technician Bheem and guided about the options in remote...</p>
+                    <a href="#" class="review-link">Google Review Link</a>
+                    <div class="reviewer">
+                        <img src="thrigun.jpg" alt="Thrigun" class="reviewer-img">
+                        <p class="reviewer-name">Thrigun</p>
+                        <p class="reviewer-location">India</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            const sliderTrack = document.querySelector('.slider-track');
+
+sliderTrack.addEventListener('mouseover', () => {
+    sliderTrack.style.animationPlayState = 'paused';
+});
+
+sliderTrack.addEventListener('mouseout', () => {
+    sliderTrack.style.animationPlayState = 'running';
+});
+
+        </script>
+        
+
+
+        <section class="faq-section">
+            <h2 class="faq-title">For Truth Seekers</h2>
+            <div class="faq-item">
+                <div class="faq-question">Do you provide customisation?</div>
+                <div class="faq-answer">Yes, we offer customization based on customer requirements.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you deliver Pan-India?</div>
+                <div class="faq-answer">Yes, we provide delivery services across India.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Where are you located?</div>
+                <div class="faq-answer">We are located in XYZ City, India.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if we get a broken product?</div>
+                <div class="faq-answer">You can contact our support team for a replacement or refund.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you maintain spare parts in your inventory?</div>
+                <div class="faq-answer">Yes, we maintain spare parts for most of our products.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">I have an ongoing project. Can someone from your team visit?</div>
+                <div class="faq-answer">Yes, our team can schedule a visit based on project requirements.</div>
+            </div>
+        </section>
+        <script>
+            document.querySelectorAll('.faq-question').forEach((question) => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+
+        const answer = faqItem.querySelector('.faq-answer');
+        if (faqItem.classList.contains('active')) {
+            answer.style.display = 'block';
+        } else {
+            answer.style.display = 'none';
+        }
+    });
+});
+
+        </script>
+ 
+        
+        
+        
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>We provide the best services for our clients and ensure satisfaction.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: support@example.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <p>Address: 123 Street, City, Country</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 My Website | All rights reserved.</p>
+            </div>
+        </footer>
+
+</body>
+</html>
