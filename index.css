@@ -12,47 +12,8 @@ body {
                padding: 10px;
                font-size: 14px;
            }
-           
-           .navbar {
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-               padding: 10px 20px;
-               background: white;
-               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-           }
-           
-           .logo {
-
-            background-image: url("");
-               font-size: 30px;
-               font-weight: bold;
-           }
-           
-           .nav-links {
-               list-style: none;
-               display: flex;
-               gap: 20px;
-           }
-           
-           .nav-links li {
-               cursor: pointer;
-               font-size: 14px;
-           }
-           
-           .icons {
-               display: flex;
-               gap: 15px;
-           }
-           
-           .icon {
-               font-size: 18px;
-               cursor: pointer;
-           }
-           
-           . 
-           
-/* Navbar Styles */
+            
+     /* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -62,12 +23,14 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
+/* Individual Links */
 .nav-links li {
     cursor: pointer;
     font-size: 14px;
@@ -80,6 +43,59 @@ body {
     color: #007bff;
     transform: scale(1.1);
 }
+
+/* Responsive Styles */
+
+/* Mobile View (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to the left */
+        padding: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px;
+        width: 100%; /* Make links take full width */
+    }
+
+    .nav-links li {
+        text-align: left; /* Align links to the left */
+        font-size: 16px; /* Slightly larger text for better readability */
+    }
+}
+
+/* Tablet View (601px to 992px) */
+@media screen and (min-width: 601px) and (max-width: 992px) {
+    .navbar {
+        padding: 15px 30px; /* Add more spacing for tablets */
+    }
+
+    .nav-links {
+        gap: 15px; /* Slightly reduce spacing */
+    }
+
+    .nav-links li {
+        font-size: 15px; /* Adjust font size */
+    }
+}
+
+/* Desktop View (993px and up) */
+@media screen and (min-width: 993px) {
+    .navbar {
+        padding: 20px 40px; /* Larger spacing for desktops */
+    }
+
+    .nav-links {
+        gap: 20px; /* Default spacing */
+    }
+
+    .nav-links li {
+        font-size: 14px; /* Default font size */
+    }
+}
+
 
 /* Dialog Box Styles */
 .dialog {
