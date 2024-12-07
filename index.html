@@ -42,43 +42,88 @@ function closeDialog() {
         </div>
         
     </header>
-  
-   
+    <section>
+        <div class="herobanner main-top">
+            <div class="content">
+              <div class="slide">
+                <img src="main\Glanza Special Filters-images-0.jpg" alt="Slide 1" />
+              </div>
+              <div class="slide">
+                <img src="main\modern-decorative-lamps.jpg" alt="Slide 2" />
+              </div>
+              <div class="slide">
+                <img src="image3.jpg" alt="Slide 3" />
+              </div>
+            </div>
+             
+          </div>
+          <script>
 
-        <div class="main-banner-carousel">
-            <div class="main-banner-card active">
-              <img src="main/Glanza Special Filters-images-0.jpg" alt="Chamonix - France">
-              <div class="info">
-                <h2>p1</h2>
-                <p>France</p>
-                <span>Let your dreams come true</span>
-              </div>
+
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showNextSlide() {
+    const currentSlide = slides[currentIndex];
+    currentSlide.classList.remove('active');
+    currentSlide.classList.add('exiting');
+
+    currentIndex = (currentIndex + 1) % slides.length; // Loop back to the first slide
+    const nextSlide = slides[currentIndex];
+
+    // Add the active class after a short delay
+    setTimeout(() => {
+        currentSlide.classList.remove('exiting');
+        nextSlide.classList.add('active');
+    }, 1000); // Matches the CSS transition duration
+}
+
+// Start the slider
+slides[currentIndex].classList.add('active');
+setInterval(showNextSlide, 3000); // Change slides every 3 seconds
+
+          </script>
+          
+    </section>
+  
+   <section>
+    <div class="main-banner-carousel">
+        <div class="main-banner-card active">
+          <img src="main/Glanza Special Filters-images-0.jpg" alt="Chamonix - France">
+          <div class="info">
+            <h2>p1</h2>
+            <p>France</p>
+            <span>Let your dreams come true</span>
+          </div>
+        </div>
+        <div class="main-banner-card">
+          <img src="main\slider-banner\banner (1).jpg" alt="Mountain">
+          <div class="info">
+            <h2>p2</h2>
+            <p>Alps</p>
+            <span>Explore the serenity</span>
+          </div>
+        </div>
+        <div class="main-banner-card">
+            <img src="main\slider-banner\banner (2).jpg" alt="Mountain">
+            <div class="info">
+              <h2>p3</h2>
+              <p>Alps</p>
+              <span>Explore the serenity</span>
             </div>
-            <div class="main-banner-card">
-              <img src="main\slider-banner\banner (1).jpg" alt="Mountain">
-              <div class="info">
-                <h2>p2</h2>
-                <p>Alps</p>
-                <span>Explore the serenity</span>
-              </div>
-            </div>
-            <div class="main-banner-card">
-                <img src="main\slider-banner\banner (2).jpg" alt="Mountain">
-                <div class="info">
-                  <h2>p3</h2>
-                  <p>Alps</p>
-                  <span>Explore the serenity</span>
-                </div>
-              </div>
-            <div class="main-banner-card">
-              <img src="main\slider-banner\banner (3).jpg" alt="Himalayas">
-              <div class="info">
-                <h2>p4</h2>
-                <p></p>
-                <span>Adventure awaits</span>
-              </div>
-            </div>
-          </div> 
+          </div>
+        <div class="main-banner-card">
+          <img src="main\slider-banner\banner (3).jpg" alt="Himalayas">
+          <div class="info">
+            <h2>p4</h2>
+            <p></p>
+            <span>Adventure awaits</span>
+          </div>
+        </div>
+      </div> 
+   </section>
+
+      
 
 <script>
 
@@ -137,9 +182,7 @@ function slideLeft() {
 // Auto-slide every 3 seconds
 setInterval(slideRight, 3000);
         </script>
-    </div>
-    <button class="prev" onclick="slideLeft()">&#10094;</button>
-    <button class="next" onclick="slideRight()">&#10095;</button>
+    </div> 
 
     <br><br>
         <section class="icon-grid">

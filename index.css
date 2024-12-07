@@ -808,6 +808,84 @@ color: #000000;
     border-radius: 10px;
     object-fit: cover;
 }
+.herobanner {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Full width for responsiveness */
+    max-width: 1200px; /* Optional: Limit max width */
+    height: auto; /* Adjust height dynamically */
+    margin: 0 auto; /* Center on larger screens */
+}
+
+.main-top {
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto; /* Adjusts height dynamically */
+    opacity: 0;
+    transform: translateX(50%); /* Start off-screen to the right */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0); /* Slide into view */
+    z-index: 1; /* Bring to the front */
+}
+
+.slide.exiting {
+    opacity: 0;
+    transform: translateX(-50%); /* Slide out to the left */
+    z-index: 0; /* Send to the back */
+}
+
+/* Responsive Styles */
+
+/* Mobile (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .herobanner {
+        height: 200px; /* Fixed height for smaller screens */
+    }
+
+    .slide img {
+        height: 200px; /* Ensure proper image scaling */
+    }
+}
+
+/* Tablet (601px to 992px) */
+@media screen and (min-width: 601px) and (max-width: 992px) {
+    .herobanner {
+        height: 400px; /* Adjust height for medium screens */
+    }
+
+    .slide img {
+        height: 400px; /* Ensure proper scaling */
+    }
+}
+
+/* Desktop (993px and up) */
+@media screen and (min-width: 993px) {
+    .herobanner {
+        height: 500px; /* Larger height for desktops */
+    }
+
+    .slide img {
+        height: 500px; /* Full coverage */
+    }
+}
 
 
-  
+ 
